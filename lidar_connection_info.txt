@@ -1,0 +1,67 @@
+YDLidar Connection Information
+================================
+
+DEVICE DETECTED:
+----------------
+Port: /dev/ttyUSB0
+USB Device: Silicon Labs CP210x UART Bridge (ID 10c4:ea60)
+Permissions: crw-rw----+ (root:dialout)
+
+INSTALLED SOFTWARE:
+-------------------
+✓ YDLidar SDK - Successfully installed
+✓ Location: /usr/local/lib/libydlidar_sdk.a
+✓ Python bindings: /usr/local/lib/python3/dist-packages/_ydlidar.so
+✓ CMake: 3.25.1
+✓ SWIG: 4.1.0
+✓ Python: 3.11.2
+
+AVAILABLE TEST PROGRAMS:
+------------------------
+C++ Examples:
+- tri_test       (Triangle LiDAR units)
+- tof_test       (TOF LiDAR units)
+- et_test        (ET series)
+- gs_test        (GS series)
+- tea_test       (TEA series)
+- tia_test       (TIA series)
+- tmini_test     (T-Mini series)
+- scl_test       (SCL series)
+- sdm_test       (SDM series)
+
+Python Examples:
+- tri_test.py
+- tof_test.py
+- gs_test.py
+- tea_test.py
+- plot_tof_test.py
+- plot_ydlidar_test.py
+
+NEXT STEPS:
+-----------
+1. Add your user to the dialout group for USB access:
+   sudo usermod -a -G dialout $USER
+   (then logout and login again)
+
+2. Test the LiDAR connection:
+   cd /home/adv/Documents/Lidar/YDLidar-SDK/build
+   ./tri_test
+   
+   Or for Python:
+   python3 /usr/local/bin/tri_test.py
+
+3. To use in your own code:
+   - C++: Include <CYdLidar.h>
+   - Python: import ydlidar
+
+COMMON PARAMETERS:
+------------------
+Typical baudrates: 115200, 128000, 153600, 230400, 512000
+Scan frequency: 5-12 Hz (depends on model)
+Single/Dual channel: Check your specific LiDAR model
+
+NOTES:
+------
+- The LiDAR is currently connected and ready to use
+- Check the SDK documentation at: /usr/local/share/YDLIDAR_SDK/doc/
+- Example code location: /home/adv/Documents/Lidar/YDLidar-SDK/examples/
