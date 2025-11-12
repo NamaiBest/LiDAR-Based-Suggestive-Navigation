@@ -10,12 +10,14 @@ echo "=========================================="
 echo ""
 echo "Choose a visualization mode:"
 echo ""
-echo "  1) Fixed-scale view (5m range) - Recommended"
-echo "  2) Auto-scaling view (2-8m dynamic)"
-echo "  3) Console test (no GUI)"
-echo "  4) Exit"
+echo "  1) Fixed-scale view (5m range)"
+echo "  2) Fixed-scale with area segmentation (6m range)"
+echo "  3) Auto-scaling view (2-8m dynamic)"
+echo "  4) Auto-scaling with area segmentation (2-8m)"
+echo "  5) Console test (no GUI)"
+echo "  6) Exit"
 echo ""
-read -p "Enter your choice [1-4]: " choice
+read -p "Enter your choice [1-6]: " choice
 
 case $choice in
     1)
@@ -25,15 +27,25 @@ case $choice in
         ;;
     2)
         echo ""
+        echo "Starting fixed-scale with area segmentation..."
+        python3 "Adaptive_Lidar_system.py"
+        ;;
+    3)
+        echo ""
         echo "Starting auto-scaling visualization..."
         python3 plot_moving_suggestive_lidar_navigation.py
         ;;
-    3)
+    4)
+        echo ""
+        echo "Starting auto-scaling with area segmentation..."
+        python3 "PlotMoving_Adaptive_Lidar_system.py"
+        ;;
+    5)
         echo ""
         echo "Starting console test..."
         python3 tri_test_maxfreq.py
         ;;
-    4)
+    6)
         echo "Goodbye!"
         exit 0
         ;;

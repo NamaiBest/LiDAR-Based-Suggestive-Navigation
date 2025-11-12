@@ -47,10 +47,12 @@ Plug in your YDLidar X2 via USB. It should appear as `/dev/ttyUSB0`.
 ```
 
 This launches an interactive menu with options:
-1. **Fixed-scale view** (5m range) - Best for navigation
-2. **Auto-scaling view** (2-8m dynamic) - Best for exploration
-3. **Console test** - No GUI, prints scan data
-4. **Exit**
+1. **Fixed-scale view** (5m range) - Classic visualization
+2. **Fixed-scale with adaptive shading** (6m range) - Shows unknown/obstacle regions
+3. **Auto-scaling view** (2-8m dynamic) - Best for exploration
+4. **Auto-scaling with adaptive shading** (2-8m) - Dynamic zoom + region awareness
+5. **Console test** - No GUI, prints scan data
+6. **Exit**
 
 ### Direct Execution
 ```bash
@@ -74,6 +76,13 @@ cd my_scripts
 - Smooth zoom transitions
 - Adapts to environment size
 - Same safety color coding
+
+### Adaptive Region Shading (NEW)
+- **Boundary interpolation**: Creates smooth, continuous boundaries from sparse LiDAR points
+- **Visual segmentation**: Dark shading highlights areas outside detected boundaries
+- **Real-time obstacle awareness**: Instantly see navigable vs. unknown/blocked regions
+- **720-point interpolation**: Sub-degree angular resolution for precise boundaries
+- Available in both fixed and auto-scaling modes
 
 ### Configuration
 Edit parameters at the top of any script:
@@ -122,7 +131,9 @@ distance = sqrt(max(|x| - half_width, 0)² + max(|y| - half_length, 0)²)
 Lidar/
 ├── my_scripts/
 │   ├── plot_tri_maxfreq.py                         # Fixed 5m visualization
+│   ├── Adaptive Lidar system.py                    # Fixed 6m with region shading
 │   ├── plot_moving_suggestive_lidar_navigation.py # Auto-scaling 2-8m
+│   ├── PlotMoving Adaptive Lidar system.py        # Auto-scaling with region shading
 │   ├── tri_test_maxfreq.py                         # Console test
 │   ├── tof_test_maxfreq.py                         # TOF LiDAR test
 │   └── run.sh                                       # Launch helper
