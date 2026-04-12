@@ -175,4 +175,4 @@ This project is independent of the YDLidar SDK. See the [YDLidar SDK repository]
 
 ## Credits
 
-Built using [YDLidar SDK](https://github.com/YDLIDAR/YDLidar-SDK) for wheelchair navigation applications.
+Built using [YDLidar SDK](https://github.com/YDLIDAR/YDLidar-SDK) for navigation applications.
